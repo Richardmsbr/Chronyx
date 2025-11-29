@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  chronyx:
+    build: .
+    container_name: chronyx-community
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./chronyx.db:/app/chronyx.db
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
